@@ -1,0 +1,45 @@
+### Node.js
+node_modules/
+**/node_modules/
+
+# Environment
+.env
+.env.local
+.env.*
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDEs and editors
+.vscode/
+.idea/
+*.sublime-workspace
+
+# Build output
+dist/
+build/
+coverage/
+.cache/
+
+# Uploaded files
+uploads/
+media/
+
+# Databases
+*.sqlite
+*.sqlite3
+
+# Misc
+*.tgz
+*.env.*.local
+
+# Docker
+docker-compose.override.yml
