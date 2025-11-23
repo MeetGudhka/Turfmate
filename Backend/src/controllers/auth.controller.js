@@ -2,6 +2,8 @@ const asyncHandler = require('express-async-handler');
 const authService = require('../services/authService');
 const { validate } = require('../middleware/validate.middleware');
 const Joi = require('joi');
+const db = require('../config/db');
+
 
 const registerSchema = Joi.object({
   name: Joi.string().required(),
@@ -40,9 +42,9 @@ const logout = asyncHandler(async (req, res) => {
   const token = authHeader && authHeader.split(' ')[1];
   if (token) {
     // In real app: blacklist token or delete from DB
-    await req.db.query('DELETE FROM refresh_tokens WHERE token = $1', [token]);
+    await db.query('DELETE FROM refresh_tokens WHERE token = $1', [token]);
   }
-  res.sendStatus(204);
+  res.sendStatus(204).json({ message: 'Logged out successfully' });
 });
 
 module.exports = { register, login, refresh, logout };

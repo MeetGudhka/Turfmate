@@ -58,6 +58,14 @@ socketHandler(io);
 app.get('/health', (req, res) => res.json({ status: 'OK', uptime: process.uptime() }));
 
 const PORT = process.env.PORT || 5000;
+
+db.connect()
+  .then(() => console.log("✅ PostgreSQL connected successfully!"))
+  .catch(err => console.error("❌ PostgreSQL connection error:", err.message));
+
 server.listen(PORT, () => {
-  console.log(`✅ TurfMate backend running on port ${PORT}`);
+  console.log(`✅ TurfMate backend running on port http://localhost:${PORT}`);
 });
+
+
+module.exports = app;

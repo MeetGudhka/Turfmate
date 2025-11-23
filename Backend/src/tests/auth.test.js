@@ -19,8 +19,8 @@ describe('Auth', () => {
     const res = await request(app)
       .post('/api/auth/login')
       .send({
-        email: 'john@example.com',
-        password: 'password'
+        email: 'test@example.com',
+        password: 'password123'
       });
     expect(res.statusCode).toBe(200);
     expect(res.body).toHaveProperty('accessToken');

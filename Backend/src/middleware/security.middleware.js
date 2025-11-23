@@ -1,6 +1,6 @@
 const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
-const xss = require('xss-clean');
+// const xss = require('xss-clean');
 const hpp = require('hpp');
 const cors = require('cors');
 const sanitizeHtml = require('sanitize-html');
@@ -55,7 +55,7 @@ const setupSecurity = (app) => {
     app.use('/api/auth/forgot-password', authLimiter);
 
     // Data sanitization against XSS
-    app.use(xss());
+    // app.use(xss());
 
     // Prevent parameter pollution
     app.use(hpp());
